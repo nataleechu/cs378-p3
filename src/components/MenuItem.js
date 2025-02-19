@@ -5,7 +5,7 @@ import React from 'react';
 // Modify the component to take in all the other properties of a menu item you need and display them in the component.
 // Use bootstrap to style the elements so that it looks like the mockup in the assignment.
 // Hint: You can use the image name to get the image from the images folder.
-const MenuItem = ({ title, description, price, img }) => {
+const MenuItem = ({ title, description, price, img, updateSubtotal, count, updateCount}) => {
     return (
         <div class="menuitem">
             <img class="menuimage" src={img} alt={description}></img>
@@ -14,7 +14,26 @@ const MenuItem = ({ title, description, price, img }) => {
           <div class="description">{description}</div>
           <div class="priceandbutton">
             <span class="price">{price}</span>
-            <button class="add">Add</button>
+            <div class="adddecrement">
+              <button class="plusandminus" onClick={() => {
+                if (count > 0) {
+                  updateCount(count - 1);
+                  updateSubtotal(prev => prev - price);
+                  return count;
+                } }}
+              >
+                  -
+              </button>
+              <button class="num">{count}</button>
+              <button class="plusandminus" onClick={() => {
+                  updateCount(count + 1);
+                  updateSubtotal(prev => prev + price);
+                  return count;
+                } }
+              >
+                  +
+              </button>
+            </div>
           </div>
         </div>
         </div>

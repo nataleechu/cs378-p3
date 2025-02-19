@@ -91,6 +91,29 @@ h1 {
   font-weight: bold;
 }
 
+.adddecrement {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; 
+}
+.plusandminus {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.num {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  cursor: pointer;
+}
+
+.add:hover {
+  background-color: #0056b3;
+}
+
 .add {
   background-color: rgb(235, 229, 229);
   color: black;
@@ -103,4 +126,23 @@ h1 {
 
 .add:hover {
   background-color: #0056b3;
+}
+.bottombuttons {
+  display: flex;
+  margin-top: auto; 
+}
+.subtotal {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 50px;
+}
+.clearAll {
+  font-size: 18px;
+  margin-left: 50px;
+  border-radius: 20px;
+}
+.order {
+  font-size: 18px;
+  margin-left: 10px;
+  border-radius: 20px;
 }

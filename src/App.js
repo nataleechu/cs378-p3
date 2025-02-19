@@ -1,6 +1,7 @@
 import './App.css';
 import MenuItem from './components/MenuItem';
 import Header from './components/Header';
+import React from 'react';
 
 // import 'bootstrap/dist/css/bootstrap.min.css'; // This imports bootstrap css styles. You can use bootstrap or your own classes by using the className attribute in your elements.
 
@@ -79,15 +80,41 @@ const menuItems = [
   }
 ];
 
-
 function App() {
+  const [subtotal, setSubtotal] = React.useState(0);
+  const [counts, setCounts] = React.useState(
+    menuItems.map(() => 0)
+  );
+  const updateCount = (index, newCount) => {
+    setCounts(prevCounts =>
+      prevCounts.map((count, i) => (i === index ? newCount : count))
+    );
+  };
   return (
     <div>
       <Header title="Japanese Restaurant" description="Delicious mmm" logo={`${process.env.PUBLIC_URL}/images/Elefante_Full_exterior.jpg`}/>
       <div className="menu">
-        {menuItems.map((item) => (
-          <MenuItem title={item.title} description={item.description} price={item.price} img={item.imageName}/>
+        {menuItems.map((item, index) => (
+          <MenuItem title={item.title} description={item.description} price={item.price} img={item.imageName} updateSubtotal={setSubtotal} count={counts[index]} updateCount={newCount => updateCount(index, newCount)} />
         ))}
+      </div>
+      <div>
+        <div class="bottombuttons">
+          <div class="subtotal">Subtotal: ${subtotal.toFixed(2)}</div>
+          <button class="clearAll" onClick={() => {
+            setSubtotal(0);
+            setCounts(menuItems.map(() => 0));
+          }}> Clear All</button>
+          <button class="order" onClick={() => {
+            var text = 'Order placed!\n';
+            counts.forEach((count, index) => {
+              if (count !== 0) {
+                text += `${count} ${menuItems[index].title}\n`;
+              }
+            });
+            alert(text);
+          }}>Order</button>
+        </div>
       </div>
     </div>
   );
