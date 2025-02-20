@@ -42,41 +42,6 @@ const menuItems = [
     description: 'Japanese rice cake',
     imageName: `${process.env.PUBLIC_URL}/images/mochi.png`,
     price: 3.99,
-  },
-  {
-    id: 6,
-    title: 'Yakitori',
-    description: 'Japanese skewered chicken',
-    imageName: `${process.env.PUBLIC_URL}/images/yakitori.png`,
-    price: 2.99,
-  },
-  {
-    id: 7,
-    title: 'Takoyaki',
-    description: 'Japanese octopus balls',
-    imageName: `${process.env.PUBLIC_URL}/images/takoyaki.png`,
-    price: 5.99,
-  },
-  {
-    id: 8,
-    title: 'Sashimi',
-    description: 'Japanese raw fish',
-    imageName: `${process.env.PUBLIC_URL}/images/sashimi.png`,
-    price: 8.99,
-  },
-  {
-    id: 9,
-    title: 'Okonomiyaki',
-    description: 'Japanese savory pancake',
-    imageName: `${process.env.PUBLIC_URL}/images/okonomiyaki.png`,
-    price: 6.99,
-  },
-  {
-    id: 10,
-    title: 'Katsu Curry',
-    description: 'Japanese curry with fried pork',
-    imageName: `${process.env.PUBLIC_URL}/images/katsu-curry.png`,
-    price: 9.99,
   }
 ];
 
