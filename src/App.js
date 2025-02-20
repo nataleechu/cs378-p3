@@ -106,12 +106,17 @@ function App() {
             setCounts(menuItems.map(() => 0));
           }}> Clear All</button>
           <button class="order" onClick={() => {
+            var items = 0;
             var text = 'Order placed!\n';
             counts.forEach((count, index) => {
               if (count !== 0) {
+                items += 1;
                 text += `${count} ${menuItems[index].title}\n`;
               }
             });
+            if (items === 0) {
+              text = 'No items in cart';
+            }
             alert(text);
           }}>Order</button>
         </div>
